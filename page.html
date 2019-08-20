@@ -125,7 +125,13 @@ nav > div:hover{
 
   <article class="main">
     <div id="myInputa">
-      <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
+      <input type="text" id="myInput" placeholder="Add names.." title="Type in a name">
+      <button type="button" name="button" onclick="addToList()">Add</button>
+      <br><br>
+      <table id="tableis">
+
+      </table>
+
     </div>
     <div id="userr">
 
@@ -175,6 +181,17 @@ nav > div:hover{
         document.getElementById("myInputa").hidden = true;
         document.getElementById("userr").hidden = true;
       }
+      function addToList() {
+
+        var data = document.getElementById("myInput");
+        var todoTable = document.getElementById("tableis");
+        var tableRow = document.createElement('tr');
+        var tableData1 = document.createElement('td');
+        tableData1.innerHTML = data.value;
+        tableRow.append(tableData1);
+        todoTable.appendChild(tableRow);
+      }
+
     </script>
 
   </body>
