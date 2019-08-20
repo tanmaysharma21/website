@@ -116,15 +116,33 @@ nav > div:hover{
     </header>
     <section>
       <nav class="tab">
-        <div> <button class="tablinks" type="button" name="ToDO">To Do</a> </button>
+        <div> <button class="tablinks" type="button" name="ToDO" onclick="ToDo()">To Do</a> </button>
           <br><br>
-        <div> <button class="tablinks" type="button" name="User">User</a> </button>
+        <div> <button class="tablinks" type="button" name="User" onclick="User()">User</a> </button>
           <br><br>
-        <div> <button class="tablinks" type="button" name="Login">Login</a> </button>
+        <div> <button class="tablinks" type="button" name="Login" onclick="Login()">Login</a> </button>
   </nav>
 
   <article class="main">
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <div id="myInputa">
+      <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
+    </div>
+    <div id="userr">
+
+      <br><br>
+      <p>Name : Modi ji</p>
+      <p>Age : 65</p>
+      <p>Address : Delhi</p>
+    </div>
+
+    <div id="loginn">
+      <label for="username">User name </label>
+      <input type="text" name="username" placeholder="Enter your user name">
+      <br><br>
+      <label for="password">Password </label>
+      <input type="text" name="password" placeholder="Enter your password">
+      <br><br>
+    </div>
 
   </article>
 
@@ -136,7 +154,28 @@ nav > div:hover{
           <a href="C:/Users/tsharma/Desktop/website/contact.html" class = "contact">Contact us</a>
       </p>
 
+
     </footer>
+
+    <script type="text/javascript">
+      document.getElementById("userr").hidden = true;
+      document.getElementById("loginn").hidden = true;
+      function ToDo() {
+        document.getElementById("myInputa").hidden = false;
+        document.getElementById("userr").hidden = true;
+        document.getElementById("loginn").hidden = true;
+      }
+      function User() {
+        document.getElementById("userr").hidden = false;
+        document.getElementById("myInputa").hidden = true;
+        document.getElementById("loginn").hidden = true;
+      }
+      function Login() {
+        document.getElementById("loginn").hidden = false;
+        document.getElementById("myInputa").hidden = true;
+        document.getElementById("userr").hidden = true;
+      }
+    </script>
 
   </body>
 </html>
