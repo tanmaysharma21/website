@@ -164,6 +164,7 @@ nav > div:hover{
     </footer>
 
     <script type="text/javascript">
+      var index="0";
       document.getElementById("userr").hidden = true;
       document.getElementById("loginn").hidden = true;
       function ToDo() {
@@ -188,8 +189,91 @@ nav > div:hover{
         var tableRow = document.createElement('tr');
         var tableData1 = document.createElement('td');
         tableData1.innerHTML = data.value;
+        var x = "tr"+index;
+        var id1 = "id1"+index;
+        tableData1.setAttribute("id", id1);
+        tableRow.setAttribute("id", x);
         tableRow.append(tableData1);
+        var tableData2 = document.createElement('button');
+        var del = 'keyDelete("'+x+'")';
+        tableData2.setAttribute("onclick", del);
+        tableData2.innerHTML = "Delete";
+        var id2 = "id2"+index;
+        tableData2.setAttribute("id", id2);
+        tableRow.append(tableData2);
+
+        var id3 = "id3"+index;
+        var id4 = "id4"+index;
+        var id5 = "id5"+index;
+
+
+        var tableData3 = document.createElement('button');
+        tableData3.innerHTML = "Edit";
+        var update = 'updateIt("'+id5+'", "'+id1+'", "'+id2+'", "'+id3+'", "'+id4+'")';
+        tableData3.setAttribute("onclick", update);
+        tableData3.setAttribute("id", id3);
+        tableRow.append(tableData3);
+
+        var tableData4 = document.createElement('input');
+
+        tableData4.setAttribute("placeholder", "new name");
+
+        tableData4.setAttribute("id", id4);
+        tableRow.append(tableData4);
+        tableData4.hidden=true;
         todoTable.appendChild(tableRow);
+
+        var tableData5 = document.createElement('button');
+        tableData5.innerHTML = "Save";
+        var save = 'SaveIt("'+id1+'", "'+id2+'", "'+id3+'", "'+id4+'", "'+id5+'")';
+        tableData5.setAttribute("onclick", save);
+        tableData5.setAttribute("id", id5);
+        tableData5.hidden=true;
+        tableRow.append(tableData5);
+
+
+        index++;
+      }
+      function keyDelete(x, ){
+        //alert(x);
+        document.getElementById(x).outerHTML="";
+      }
+
+      function updateIt(id5, id1, id2, id3, id4) {
+        //var row = document.getElementById(x);
+        var data1 = document.getElementById(id1);
+        var data2 = document.getElementById(id2);
+        var data3 = document.getElementById(id3);
+        var data4 = document.getElementById(id4);
+        var data5 = document.getElementById(id5);
+        //row.hidden=true;
+        data1.hidden=true;
+        data2.hidden=true;
+        data3.hidden=true;
+        data4.hidden=false;
+        data5.hidden=false;
+
+      }
+
+      function SaveIt(id1, id2, id3, id4, id5){
+        //alert("DS");
+        var data1 = document.getElementById(id1);
+        var data2 = document.getElementById(id2);
+        var data3 = document.getElementById(id3);
+        var data4 = document.getElementById(id4);
+        var data5 = document.getElementById(id5);
+        //alert("dsssssssf");
+        //row.hidden=true;
+        data1.hidden=false;
+        alert(data1.innerHTML);
+        data1.innerHTML = data4.value;
+        alert(data1.innerHTML);
+        data2.hidden=false;
+        data3.hidden=false;
+        data4.hidden=true;
+        data5.hidden=true;
+
+
       }
 
     </script>
